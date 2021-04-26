@@ -1,0 +1,124 @@
+{% extends 'layout/base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+ <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>About Us</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>About Us</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= About Section ======= -->
+    <section class="about" data-aos="fade-up">
+      <div class="container">
+
+        <div class="row">
+        {% for abt in about  %}
+          <div class="col-lg-6">
+            <img src=" {{ abt.logo.url }} " class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <h3>{{abt.title}}</h3>
+            <p class="fst-italic">
+              {{abt.body|safe}}
+            </p>
+          </div>        
+        {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Facts Section ======= -->
+    <section class="facts section-bg" data-aos="fade-up">
+      <div class="container">
+
+        <div class="row counters">
+        {% for number in numbers %}
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="{{ number.number }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>{{number.title}}</p>
+          </div>
+        
+        {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- End Facts Section -->
+
+    <!-- ======= Our Skills Section ======= -->
+    <section class="skills" data-aos="fade-up">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Our Skills</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="skills-content">
+        {% for skill in skills %}
+          <div class="progress">
+            <div class="progress-bar bg-{{skill.progressbar_color}}" role="progressbar" aria-valuenow="{{skill.num}}" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">{{skill.name}} <i class="val">{{skill.num}} %</i></span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section><!-- End Our Skills Section -->
+
+    <!-- ======= Tetstimonials Section ======= -->
+    <section class="testimonials" data-aos="fade-up">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Tetstimonials</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="testimonials-carousel swiper-container">
+
+
+          <div class="swiper-wrapper">
+          {% for testimonial in testimonials %}
+            <div class="testimonial-item swiper-slide">
+              <img src="{{ testimonial.image.url }}" class="testimonial-img" alt="">
+              <h3>{{ testimonial.fulle_name}}</h3>
+              <h4>{{ testimonial.job_title }}</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                {{testimonial.testimonial_item}}
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>          
+          
+          {% endfor %}
+
+
+            
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Ttstimonials Section -->
+
+  </main><!-- End #main -->
+{% endblock main %}

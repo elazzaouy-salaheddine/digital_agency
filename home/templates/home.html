@@ -1,0 +1,121 @@
+{% extends 'layout/base.html' %}
+
+{% load static %}
+{% block main %}
+
+
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex justify-cntent-center align-items-center">
+      <div
+        id="heroCarousel"
+        class="container carousel carousel-fade"
+        data-bs-ride="carousel"
+        data-bs-interval="5000"
+      >
+      {% for item in  intor %}
+              <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="carousel-container">
+            <h2 class="animate__animated animate__fadeInDown">
+              {{item.title}}
+            </h2>
+            <p class="animate__animated animate__fadeInUp">
+              {{ item.description }}
+            </p>
+            <a
+              href="{{ item.link }}"
+              class="btn-get-started animate__animated animate__fadeInUp"
+              >Read More</a
+            >
+          </div>
+        </div>
+        <!-- end slide 1 -->
+      {% endfor %}
+
+
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+      <!-- ======= Services Section ======= -->
+      <section class="services">
+        <div class="container">
+          <div class="row">
+
+          {% for item in homeservices %}
+            <div class="col-md-4 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" >
+              <div class="icon-box icon-box-pink">
+                <div class=""><img src="{{item.logo.url}}" alt="My image" class='w-50 mb-1'></div>
+                <h4 class="title"><a href="">{{item.title}}</a></h4>
+                <p class="description">{{ item.description }}</p>
+              </div>
+            </div>          
+          {% endfor %}
+
+          </div>
+        </div>
+      </section>
+      <!-- End Services Section -->
+
+
+
+      <!-- ======= Features Section ======= -->
+      <section class="features">
+        <div class="container">
+          <div class="section-title">
+            <h2>INDUSTRIES</h2>
+            <p>
+              Diving deep into your business and domain specification
+            </p>
+          </div>
+
+
+        {% for industrie in industries %}
+      {% if  industrie.position == "left" %}
+        <div class="row" data-aos="fade-up">
+          <div class="col-md-5">
+            <img src="{{industrie.logo.url}}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7 pt-4">
+            <h3>{{ industrie.title }}</h3>
+            <p class="fst-italic">
+              {{industrie.body|safe}}
+            </p>
+
+          </div>
+        </div>
+      {% elif industrie.position == "right"%}
+              <div class="row" data-aos="fade-up">
+          <div class="col-md-5 order-1 order-md-2">
+            <img src="{{industrie.logo.url}}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7 pt-5 order-2 order-md-1">
+            <h3>{{ industrie.title }}</h3>
+            <p class="fst-italic">
+              {{industrie.body|safe}}
+            </p>
+            
+          </div>
+        </div>  
+      {% endif %}
+
+
+     
+  
+       
+        {% endfor %}
+
+
+
+
+
+
+        </div>
+      </section>
+      <!-- End Features Section -->
+    </main>
+    <!-- End #main -->
+
+{% endblock main %}

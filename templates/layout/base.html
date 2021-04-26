@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Moderna Bootstrap Template - Index</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    {% include 'layout/style.html' %}
+    <!-- =======================================================
+  * Template Name: Moderna - v4.1.0
+  * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  </head>
+
+  <body>
+    {% include 'layout/header.html' %} 
+    
+    {% block main %} 
+    
+    {% endblock main %} 
+    
+    {% include 'layout/footer.html' %}
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    {% include 'layout/scripts.html' %}
+  </body>
+</html>
