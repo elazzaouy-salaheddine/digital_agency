@@ -4,4 +4,8 @@ from.models import portfolio_item, category
 
 
 admin.site.register(category)
-admin.site.register(portfolio_item)
+
+class PortfolioAdmin(admin.ModelAdmin):
+    list_display = ['title','client','category','project_date']
+    list_filter = ['category']
+admin.site.register(portfolio_item,PortfolioAdmin)

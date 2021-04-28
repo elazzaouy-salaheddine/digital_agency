@@ -12,6 +12,7 @@ class category(models.Model):
 class portfolio_item(models.Model):
     category = models.ForeignKey('category',on_delete=models.CASCADE)
     client = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
     project_date = models.DateField(null=False,blank=False)
     project_url = models.URLField()
     project_detail = RichTextField()
