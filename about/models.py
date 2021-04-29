@@ -12,7 +12,7 @@ class ContactInfo(models.Model):
     email = models.EmailField(max_length=254)
 
 
-class about_the_company(models.Model):
+class AboutTheCompany(models.Model):
     body = models.TextField()
 
 class social_link(models.Model):
@@ -51,3 +51,9 @@ class testimonial(models.Model):
 
     def __str__(self):
         return self.fulle_name
+
+class Terms_of_service(models.Model):
+    body = models.TextField()
+
+class Privacy_policy(models.Model):
+    body = models.TextField()
